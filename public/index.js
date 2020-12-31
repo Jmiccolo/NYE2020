@@ -1,6 +1,6 @@
     const title = document.getElementById("title");
     title.style.opacity = 0;
-    const videos = ["TGoDtqI34nM", "Ms7capx4Cb8", "HjStytKZ6jU"];
+    const videos = ["TGoDtqI34nM", "Ms7capx4Cb8", "HjStytKZ6jU", "JhkZMxgPxXU", "Y7EB4ZYWKYI","fn3KWM1kuAw"];
     let nextVideo = videos[0];
     const videoTimes = [];
     for(let i = 0; i < 60; i++){
