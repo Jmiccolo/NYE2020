@@ -1,0 +1,69 @@
+body {
+    background:#000 url("./PNGSTARS.png");
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+h1 {
+    color: white;
+    font-size: 100px;
+    font-family: 'Anonymous Pro', monospace;
+    transition: opacity 4s ease-in-out;
+}
+@media only screen and (max-width: 600px){
+    h1{
+        font-size: 70px;
+    }
+}
+
+.Video {
+    transform: scale(1);
+    transform-origin: top left;
+    transition: transform 5s ease-in-out;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 200;
+}
+
+.hidden {
+    transform: scale(0);
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.confetti {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 100vh;
+    left: 50vw;
+    z-index: 100;
+    transition: transform 500ms ease-in-out;
+}
+.gold{
+    background-color: #b39136;
+}
+.silver{
+    background-color: #5B564C;
+}
+
+button {
+    border-radius: 15px;
+    font-size: 30px;
+    background-color: #b39136;
+    border: 3px solid black;
+    padding: 2px;
+    transition: transform 500ms ease-in-out;
+}
