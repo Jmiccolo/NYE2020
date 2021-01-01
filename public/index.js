@@ -3,7 +3,7 @@
     const videos = ["7wEMnVpvEKE", "Ix2iidJp1OE", "Ms7capx4Cb8", "HjStytKZ6jU", "JhkZMxgPxXU", "Y7EB4ZYWKYI","fn3KWM1kuAw"];
     let nextVideo = window.localStorage.nextVideo? videos[window.localStorage.nextVideo] : video[0];
     const videoTimes = [];
-    for(let i = 0; i < 60; i++){
+    for(let i = 0; i < 60; i+=2){
         videoTimes.push(i);
     }
     setTimeout(function(){
@@ -33,7 +33,7 @@
             if(newCountdown.getSeconds() === 0 && newCountdown.getMinutes()===0 && newCountdown.getHours() === 0){
                 confettiThrow();
             }
-            if(newCurrent.getSeconds() === 0 && (videoTimes.includes(newCurrent.getMinutes())) && (newCountdown.getHours() !== 0 && newCountdown.getMinutes() !== 0)){
+            if(newCurrent.getSeconds() === 0 && (videoTimes.includes(newCurrent.getMinutes())) && (newCountdown.getHours() !== 0 && newCountdown.getMinutes() !== 0 && days 1 !== "00:")){
             const video = document.querySelector(".Video");
             const iframe = document.createElement("iframe");
             iframe.setAttribute("src", `https://www.youtube.com/embed/${nextVideo}?autoplay=1&loop=1&controls=1`);
@@ -41,7 +41,6 @@
             iframe.setAttribute("frameborder", "0");
             video.appendChild(iframe);
             video.classList.remove("hidden");
-            console.log(document.querySelector("iframe"));
             setTimeout(() => {
                     const video = document.querySelector(".Video");
                     video.classList.add("hidden");
@@ -49,7 +48,7 @@
                         const iframe = document.querySelector("iframe");
                         iframe.parentNode.removeChild(iframe);
                     },5500)
-                }, 45000);
+                }, 120000);
                 setNextVideo();
             }
         }, 1000);
