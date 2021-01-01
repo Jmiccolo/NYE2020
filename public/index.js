@@ -33,7 +33,7 @@
             if(newCountdown.getSeconds() === 0 && newCountdown.getMinutes()===0 && newCountdown.getHours() === 0){
                 confettiThrow();
             }
-            if(newCurrent.getSeconds() === 0 && (videoTimes.includes(newCurrent.getMinutes())) && (newCountdown.getHours() !== 0 && newCountdown.getMinutes() !== 0 && days 1 !== "00:")){
+            if(newCurrent.getSeconds() === 0 && (videoTimes.includes(newCurrent.getMinutes())) && (newCountdown.getHours() !== 0 && newCountdown.getMinutes() !== 0 && days !== "00:")){
             const video = document.querySelector(".Video");
             const iframe = document.createElement("iframe");
             iframe.setAttribute("src", `https://www.youtube.com/embed/${nextVideo}?autoplay=1&loop=1&controls=1`);
