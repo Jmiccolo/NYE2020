@@ -1,7 +1,7 @@
     const title = document.getElementById("title");
     title.style.opacity = 0;
-    const videos = ["TGoDtqI34nM", "Ms7capx4Cb8", "HjStytKZ6jU", "JhkZMxgPxXU", "Y7EB4ZYWKYI","fn3KWM1kuAw"];
-    let nextVideo = videos[0];
+    const videos = ["7wEMnVpvEKE", "Ix2iidJp1OE", "Ms7capx4Cb8", "HjStytKZ6jU", "JhkZMxgPxXU", "Y7EB4ZYWKYI","fn3KWM1kuAw"];
+    let nextVideo = window.localStorage.nextVideo? videos[window.localStorage.nextVideo] : video[0];
     const videoTimes = [];
     for(let i = 0; i < 60; i++){
         videoTimes.push(i);
@@ -41,15 +41,16 @@
             iframe.setAttribute("frameborder", "0");
             video.appendChild(iframe);
             video.classList.remove("hidden");
+            console.log(document.querySelector("iframe"));
             setTimeout(() => {
                     const video = document.querySelector(".Video");
-                    const iframe = document.querySelector("iframe");
                     video.classList.add("hidden");
-                    video.addEventListener("transitionend", function(){
-                        video.removeChild(iframe);
-                    })
-                    setNextVideo();
+                    setTimeout(function(){
+                        const iframe = document.querySelector("iframe");
+                        iframe.parentNode.removeChild(iframe);
+                    },5500)
                 }, 45000);
+                setNextVideo();
             }
         }, 1000);
         
@@ -59,14 +60,16 @@
         const currentVideoIndex = videos.indexOf(nextVideo);
         if(currentVideoIndex === videos.length-1){
             nextVideo = videos[0]
+            localStorage.setItem("nextVideo", 0);
         }
         else{
-        nextVideo = videos[currentVideoIndex + 1];
+            nextVideo = videos[currentVideoIndex + 1];
+            localStorage.setItem("nextVideo", (currentVideoIndex+1));
         }
     }
 
     function confettiThrow(){
-        for(let i = 0;  i <  100; i++){
+        for(let i = 0;  i <  200; i++){
             const confetti = document.createElement("div");
             confetti.classList.add("confetti");
             if(i % 2 === 0){
@@ -76,18 +79,19 @@
                 confetti.classList.add("gold");
             }
             document.querySelector("body").appendChild(confetti);
-            const x = 150-Math.floor(Math.random()*300);
-            const y = Math.floor(Math.random()*200);
+            const x = 150-Math.floor(Math.random()*400);
+            const y = Math.floor(Math.random()*300);
             const rotation = Math.floor(Math.random()*360);
             setTimeout(function(){
+                confetti.style.transition = `transform 500ms ease-in-out`;
                 confetti.style.transform = `translate(${x}vw, -${y}vh) rotate(${rotation}deg)`;
             }, 400);
-            
             setTimeout(function(){
+                confetti.style.transition = `transform 5s ease-in-out`;
                 const newX = 150-Math.floor(Math.random()*300);
                 const newRotation = Math.floor(Math.random()*360);
                 confetti.style.transform = `translate(${newX}vw, 150vh) rotate(${newRotation}deg)`;
-            }, 1400)
+            }, 1000)
             }
         }   
 
