@@ -48,7 +48,7 @@
                         const iframe = document.querySelector("iframe");
                         iframe.parentNode.removeChild(iframe);
                     },5500)
-                }, 120000);
+                }, 1050000);
                 setNextVideo();
             }
         }, 1000);
